@@ -9,18 +9,27 @@ Dark green: #28b485
 /*           BASIC SETUP            */
 /* ---------------------------------*/
 
-*{
+*,
+*::before,
+*::after{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit
+}
+html{
+    /*Browser's default font-size is 16px.
+    But need 10px for this project.
+    So, set the font-size 10/16=.625 or 62.5% */
+    font-size: 62.5%;
+
 }
 body{
     font-family: 'Lato',sans-serif;
-    font-size: 16px;
     line-height: 1.7;
     font-weight: 400;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 
 }
 
@@ -31,7 +40,7 @@ body{
 .header{
     height: 95vh;
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801),rgba(40, 180, 133, 0.801)),
-                      url(/css/img/bg.jpg);
+                      url(css/img/bg.jpg);
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0,100% 0,100% 80vh,0 100%);
@@ -40,17 +49,17 @@ body{
 
 /* LOGO */
 
-.logo-box{
+.header__logo-box{
     position: absolute;
-    top:40px;
-    left:40px;
+    top:4rem;
+    left:4rem;
    
 }
-.logo-img{
-    height: 35px;
+.header__logo-img{
+    height: 3.5rem;
 }
 
-.header-text{
+.header__text{
      position: absolute;
      top:40%;
      left: 50%;
@@ -61,19 +70,19 @@ body{
     color: #fff;
     text-transform: uppercase;
     backface-visibility: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 .primary-heading-main{
-    letter-spacing: 35px;
-    font-size: 60px;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
     display: block;
     font-weight: 400;
     animation: moveInLeft 1s ease-out;
     /* transition: all 1s; */
 }
 .primary-heading-sub{
-    letter-spacing: 4.5px;
-    font-size: 20px;
+    letter-spacing: .45rem;
+    font-size: 2rem;
     display: block;
     font-weight: 400;
     animation:moveInRight 1s ease-out;
@@ -87,10 +96,10 @@ body{
 @keyframes moveInLeft{
     0%{
        opacity: 0;
-       transform: translateX(-100px);
+       transform: translateX(-10rem);
     }
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100%{
         opacity: 1;
@@ -101,10 +110,10 @@ body{
 @keyframes moveInRight{
     0%{
        opacity: 0;
-       transform: translateX(100px);
+       transform: translateX(1rem);
     }
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100%{
         opacity: 1;
@@ -115,7 +124,7 @@ body{
 @keyframes moveInBottom{
     0%{
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-1rem);
      }
 
      100%{
@@ -133,12 +142,13 @@ body{
 .btn:link,
 .bth:visited{
     text-transform: uppercase;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     text-decoration: none;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all 0.2s;
     position: relative;
+    font-size: 1.6rem;
    
     
 }
@@ -148,14 +158,14 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     top: 0;
     left: 0;
     z-index: -1;
     transition: all .4s;
 }
 .btn:hover{
-    transform: translateY(-3px);
+    transform: translateY(-.3rem);
     box-shadow: 0 10px 20px rgba(0, 0,0,0.2);
 }
 .btn:hover::after{
@@ -163,18 +173,18 @@ body{
     opacity: 0;
 }
 .btn:active{
-    transform: translateY(-1px);
+    transform: translateY(-.1rem);
     box-shadow: 0 5px 20px rgba(0, 0,0,0.2);
    
 }
 
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777;
 }
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
-.btn-animated{
+.btn--animated{
     animation: moveInBottom .5s ease-out 1s backwards;
 }
