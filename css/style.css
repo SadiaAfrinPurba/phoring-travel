@@ -370,6 +370,7 @@ body {
     transform: translate(-50%, -20%);
     transition: all .5s;
     opacity: 0;
+<<<<<<< HEAD
     backface-visibility: hidden; }
   .story:hover .story__caption {
     opacity: 1;
@@ -448,3 +449,22 @@ body {
 .section-stories {
   padding: 15rem 0;
   position: relative; }
+=======
+}
+.btn:active{
+    transform: translateY(-.1rem);
+    box-shadow: 0 5px 20px rgba(0, 0,0,0.2);
+   
+}
+
+.btn--white{
+    background-color: #fff;
+    color: #777;
+}
+.btn--white::after{
+    background-color: #fff;
+}
+.btn--animated{
+    animation: moveInBottom .5s ease-out 1s backwards;
+}
+>>>>>>> 0596ae33426ee7ffa56e823b14b87dacf29f7cf2
