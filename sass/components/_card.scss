@@ -1,0 +1,178 @@
+.card{
+
+    //BASIC FUNCTIONALITY
+
+    -webkit-perspective: 150rem;
+
+            perspective: 150rem;
+    //this height is important. If not given its children(front,back) wont animated smoothly
+    //and perspective property will dismiss.
+    height: 52rem;
+    position: relative; 
+
+    &__side{
+        font-size: 2rem;
+        height: 52rem;
+        -webkit-transition: all .8s ease;transition: all .8s ease;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        border-radius: 2px;
+        overflow: hidden;
+        -webkit-box-shadow: 0 1.5rem 4rem rgba($color-black,.15);
+                box-shadow: 0 1.5rem 4rem rgba($color-black,.15);
+        //to hide back side of an element
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+
+
+        &--front{
+            background-color:$color-white;
+        }
+        &--back{
+            
+            -webkit-transform: rotateY(180deg);
+            
+                    transform: rotateY(180deg);
+            &-left{
+                background-image:  -webkit-gradient(linear, left top, right bottom, from($color-secondary-light),to($color-secondary-dark));
+                background-image:  linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark);
+            }
+            &-middle{
+                background-image:  -webkit-gradient(linear, left top, right bottom, from($color-secondary-light),to($color-secondary-dark));
+                background-image:  linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark);
+            }
+            &-right{
+                background-image:  -webkit-gradient(linear, left top, right bottom, from($color-secondary-light),to($color-secondary-dark));
+                background-image:  linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark);
+            }
+        }
+        
+        
+    }
+    &:hover &__side--front{
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+
+    }
+    &:hover &__side--back{
+        -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+
+    }
+
+    //CARD FRONT STYLING
+
+    &__picture{
+        background-size: cover;
+        height: 23rem;
+        -webkit-clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+        //blend two bg-image or effect
+        background-blend-mode: screen;
+
+
+        &--left{
+            background-image: -webkit-gradient(linear, left top, right bottom, from($color-secondary-light),to($color-secondary-dark)),
+                              url(/css/img/card-1.jpg);
+            background-image: linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark),
+                              url(/css/img/card-1.jpg);
+        }
+        &--middle{
+            background-image: -webkit-gradient(linear, left top, right bottom, from($color-primary-lighter),to($color-primary-darker)),
+                              url(/css/img/card-2.jpg);
+            background-image: linear-gradient(to right bottom, $color-primary-lighter,$color-primary-darker),
+                              url(/css/img/card-2.jpg);
+        }
+        &--right{
+            background-image: -webkit-gradient(linear, left top, right bottom, from($color-tertiary-light),to($color-tertiary-dark)),
+                              url(/css/img/card-3.jpg);
+            background-image: linear-gradient(to right bottom, $color-tertiary-light,$color-tertiary-dark),
+                              url(/css/img/card-3.jpg);
+        }
+        
+    }
+    &__heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        left: 10rem;
+        text-align: center;
+        width: 75%;
+
+    }
+    &__heading--span{
+        padding: 1rem 1rem;
+        
+        //"explore to bandarban"->this property will consider this text as different entity.so there
+        //will be padding before the strating word and also before the line-breaking word(ex:bandarban)
+        -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+
+        &-left{
+            background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-secondary-light, 0.85)),to(rgba($color-secondary-dark,0.85)));
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.85),rgba($color-secondary-dark,0.85))
+        }
+        &-middle{
+            background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-primary-lighter, 0.85)),to(rgba($color-primary-darker,0.85)));
+            background-image: linear-gradient(to right bottom, rgba($color-primary-lighter, 0.85),rgba($color-primary-darker,0.85))
+        }
+        &-right{
+            background-image: -webkit-gradient(linear, left top, right bottom, from(rgba($color-tertiary-light, 0.85)),to(rgba($color-tertiary-dark,0.85)));
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.85),rgba($color-tertiary-dark,0.85))
+        }
+    }
+    &__details{
+        padding: 3rem;
+        ul{
+           list-style: none;
+           width: 80%;
+           margin: 0 auto;
+           text-align: center;
+        }
+        li{
+            
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-transform: uppercase;
+            &:not(:last-child){
+                border-bottom: 1px solid $color-grey-light-2;
+            }
+        }
+    }
+
+    //CARD BACK STYLING
+
+    &__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        //if not given the button looks odd
+        width: 90%;
+       
+      
+    }
+    &__price-box{
+       text-align: center;
+       color: $color-white;
+       margin-bottom: 8rem;
+
+      
+    }
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        padding: 1rem 0;
+    }
+    &__price-value{
+        font-size: 10rem;
+        font-weight: 100;
+    }
+    
+}

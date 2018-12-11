@@ -1,0 +1,67 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    background-color: rgba($color-white,.6);
+    box-shadow: 0 3rem 6rem rgba($color-black,.1);
+    padding:6rem;
+    font-size: $default-font-size;
+    padding-left: 9rem; //for giving &__shape translateX property, 3rem  extra padding on left side is needed
+                        //so padding-left:6+3=9
+    
+    
+    transform: skewX(-12deg);
+
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        position: relative;
+
+        //wrap surrounding element like a circle shape
+        //50% is radius(7.5rem) at 50% top and 50% left
+        shape-outside: circle(50% at 50% 50%);
+        
+        clip-path: circle(50% at 50% 50%);
+        
+        //to clear the section's skew effect
+        //to give a margin translateX is used
+        transform: translateX(-3rem) skewX(12deg);
+        
+    }
+    &__image{
+        height: 100%;
+        transform: translateX(-4rem) scale(1.1);
+        transition: all .5s;
+        backface-visibility: hidden;
+        
+    }
+    &__text{
+        //to clear the section's skew effect
+        transform: skewX(12deg);
+    }
+    &__caption{
+        font-size: 1.7rem;
+        color: $color-white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-20%);
+        transition: all .5s;
+        opacity: 0;
+        backface-visibility: hidden;
+
+    }
+    &:hover &__caption{
+        opacity: 1;
+        transform:translate(-50%,-50%);
+    }
+    &:hover &__image{
+       transform: translateX(-4rem) scale(1);
+       filter: blur(3px) brightness(70%);
+    }
+
+
+
+    
+
+}
