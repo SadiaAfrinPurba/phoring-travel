@@ -11,9 +11,27 @@ html{
     So, set the font-size 10/16=.625 or 62.5% */
     font-size: 62.5%;
 
+    //responsive
+    
+    @include respond(tab-land){  //width<1200px
+        font-size: 56.25%;       //1rem=9px, 9/16=56.25%
+    }
+    @include respond(tab-port){  //width<900px,in case of conflict, the last declaration will be followed
+        font-size: 50%;          //1rem=8px, 8/16=50%
+    }
+  
+    @include respond(big-desktop){
+        font-size: 75%;  //1rem=12px, 12/16=75%
+    }
+
 }
 body{
 
     box-sizing: border-box;
+    //for the white space through entire page
+    padding: 3rem;
+    @include respond(tab-port){
+        padding: 0;
+    }
 
 }

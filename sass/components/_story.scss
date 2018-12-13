@@ -3,13 +3,25 @@
     margin: 0 auto;
     background-color: rgba($color-white,.6);
     box-shadow: 0 3rem 6rem rgba($color-black,.1);
-    padding:6rem;
     font-size: $default-font-size;
+    padding:6rem;
     padding-left: 9rem; //for giving &__shape translateX property, 3rem  extra padding on left side is needed
                         //so padding-left:6+3=9
     
     
     transform: skewX(-12deg);
+    
+    @include respond(tab-port){
+        width: 100%;
+        padding:4rem;
+        padding-left: 7rem;
+   
+    }
+
+    @include respond(phone){
+        transform: skewX(0);
+   
+    }
 
     &__shape{
         width: 15rem;
@@ -26,6 +38,11 @@
         //to clear the section's skew effect
         //to give a margin translateX is used
         transform: translateX(-3rem) skewX(12deg);
+
+        @include respond(phone){
+            transform: translateX(-3rem) skewX(0);
+       
+        }
         
     }
     &__image{
@@ -38,6 +55,11 @@
     &__text{
         //to clear the section's skew effect
         transform: skewX(12deg);
+
+        @include respond(phone){
+            transform: skewX(0);
+       
+        }
     }
     &__caption{
         font-size: 1.7rem;
